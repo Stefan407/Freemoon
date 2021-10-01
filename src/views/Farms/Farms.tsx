@@ -401,8 +401,8 @@ const Farms: React.FC = () => {
             <FarmTabButtons hasStakeInFinishedFarms={stakedInactiveFarms.length > 0} />
           </ViewControls>
           <FilterContainer>
+            <Text color="#6F6C99" mr="10px" >{t('Sort by')}</Text>
             <LabelWrapper>
-              <Text textTransform="uppercase">{t('Sort by')}</Text>
               <Select
                 options={[
                   {
@@ -430,7 +430,7 @@ const Farms: React.FC = () => {
               />
             </LabelWrapper>
             <LabelWrapper style={{ marginLeft: 16 }}>
-              <Text textTransform="uppercase">{t('Search')}</Text>
+              {/* <Text textTransform="uppercase">{t('Search')}</Text> */}
               <SearchInput onChange={handleChangeQuery} placeholder="Search Farms" />
             </LabelWrapper>
           </FilterContainer>

@@ -41,6 +41,24 @@ const ContentLayout = styled.div`
   }
 `
 
+
+const StyledButtonWrap = styled.div`
+
+  & button{
+    display: flex;
+    width: 100%;
+    margin: 0;
+    justify-content: center;
+    padding: 20px;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+  }
+`
+
 const TokenButton = styled(Flex)`
   padding: 8px 0px;
   margin-right: 16px;
@@ -150,9 +168,11 @@ const PoolPage: React.FC<RouteComponentProps<{ address: string }>> = ({
               </Flex>
               <Flex>
                 <Link to={`/add/${poolData.token0.address}/${poolData.token1.address}`}>
-                  <Button mr="8px" variant="secondary">
-                    {t('Add Liquidity')}
-                  </Button>
+                  <StyledButtonWrap >
+                    <Button mr="8px" variant="secondary">
+                      {t('Add Liquidity')}
+                    </Button>
+                  </StyledButtonWrap >
                 </Link>
                 <Link to={`/swap?inputCurrency=${poolData.token0.address}&outputCurrency=${poolData.token1.address}`}>
                   <Button>{t('Trade')}</Button>

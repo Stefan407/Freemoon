@@ -179,12 +179,12 @@ const Pools: React.FC = () => {
             }
             return pool.isAutoVault
               ? getCakeVaultEarnings(
-                  account,
-                  cakeAtLastUserAction,
-                  userShares,
-                  pricePerFullShare,
-                  pool.earningTokenPrice,
-                ).autoUsdToDisplay
+                account,
+                cakeAtLastUserAction,
+                userShares,
+                pricePerFullShare,
+                pool.earningTokenPrice,
+              ).autoUsdToDisplay
               : pool.userData.pendingReward.times(pool.earningTokenPrice).toNumber()
           },
           'desc',
@@ -255,15 +255,12 @@ const Pools: React.FC = () => {
     <>
       <PageHeader>
         <Flex justifyContent="space-between" flexDirection={['column', null, null, 'row']}>
-          <Flex flex="1" flexDirection="column" mr={['8px', 0]}>
-            <Heading as="h1" scale="xxl" color="text" mb="24px">
-              {t('Syrup Pools')}
+          <Flex flex="1" flexDirection="column" mr={['8px', 0]} justifyContent="center">
+            <Heading as="h1" scale="xl" color="text" mb="14px">
+              {t('Galaxy Pools')}
             </Heading>
             <Heading scale="md" color="text">
-              {t('Just stake some tokens to earn.')}
-            </Heading>
-            <Heading scale="md" color="text">
-              {t('High APR, low risk.')}
+              {t('Just stake some tokens to earn. High APR, low risk.')}
             </Heading>
           </Flex>
           <Flex flex="1" height="fit-content" justifyContent="center" alignItems="center" mt={['24px', null, '0']}>
@@ -282,10 +279,10 @@ const Pools: React.FC = () => {
             setViewMode={setViewMode}
           />
           <FilterContainer>
+            <Text fontSize="12px"  bold color="#6F6C99" mr="10px" textTransform="uppercase">
+              {t('Sort by')}
+            </Text>
             <LabelWrapper>
-              <Text fontSize="12px" bold color="textSubtle" textTransform="uppercase">
-                {t('Sort by')}
-              </Text>
               <ControlStretch>
                 <Select
                   options={[
@@ -311,9 +308,9 @@ const Pools: React.FC = () => {
               </ControlStretch>
             </LabelWrapper>
             <LabelWrapper style={{ marginLeft: 16 }}>
-              <Text fontSize="12px" bold color="textSubtle" textTransform="uppercase">
+              {/* <Text fontSize="12px" bold color="textSubtle" textTransform="uppercase">
                 {t('Search')}
-              </Text>
+              </Text> */}
               <SearchInput onChange={handleChangeSearchQuery} placeholder="Search Pools" />
             </LabelWrapper>
           </FilterContainer>

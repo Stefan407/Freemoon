@@ -23,6 +23,7 @@ const StyledRow = styled.div`
   background-color: transparent;
   display: flex;
   cursor: pointer;
+  border-bottom: 1px solid #36336B !important;
 `
 
 const PoolRow: React.FC<PoolRowProps> = ({ pool, account, userDataLoaded }) => {

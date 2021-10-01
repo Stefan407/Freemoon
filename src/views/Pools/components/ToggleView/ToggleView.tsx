@@ -38,3 +38,4 @@ const ToggleView: React.FunctionComponent<ToggleViewProps> = ({ viewMode, onTogg
 }
 
 export default ToggleView
+

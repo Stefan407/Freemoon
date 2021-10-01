@@ -25,8 +25,11 @@ theme.colors.overlay = "#7B78AA";
 theme.colors.backgroundAlt = "#17163B";
 theme.colors.cardBorder = "#36336B";
 theme.colors.primary = "#EF478C";
+theme.colors.success = "linear-gradient(87.95deg, #6025F5 -30.37%, #FF5555 98.24%)";
 theme.colors.disabled = "#6F6C99";
 theme.colors.backgroundDisabled = "transparent";
+theme.colors.secondary = "#6F6C99";
+theme.colors.dropdown = "#242249";
 theme.card.background = "#242249";
 
 
@@ -35,14 +38,7 @@ const themeLight = light as PancakeTheme;
 themeLight.colors.textSubtle = "#242249";
 themeLight.colors.secondary = "#EF478C";
 themeLight.colors.text = "#242249";
-// themeLight.colors.input = "#2D2A57";
-// themeLight.colors.overlay = "#7B78AA";
-// themeLight.colors.backgroundAlt = "#17163B";
-// themeLight.colors.cardBorder = "#36336B";
 themeLight.colors.primary = "#EF478C";
-// themeLight.colors.disabled = "#6F6C99";
-// themeLight.colors.backgroundDisabled = "transparent";
-// themeLight.card.background = "#242249";
 
 const Providers: React.FC = ({ children }) => {
   return (

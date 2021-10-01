@@ -120,12 +120,10 @@ const App: React.FC = () => {
             <Route path="/voting/proposal/:id">
               <Proposal />
             </Route>
-            {/* Info pages */}
             <Route path="/info">
               <Info />
             </Route>
 
-            {/* Using this format because these components use routes injected props. We need to rework them with hooks */}
             <Route exact strict path="/swap" component={Swap} />
             <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
             <Route exact strict path="/send" component={RedirectPathToSwapOnly} />
@@ -141,7 +139,6 @@ const App: React.FC = () => {
             <Route exact strict path="/remove/:tokens" component={RedirectOldRemoveLiquidityPathStructure} />
             <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
 
-            {/* Redirect */}
             <Route path="/pool">
               <Redirect to="/liquidity" />
             </Route>
@@ -155,7 +152,6 @@ const App: React.FC = () => {
               <Redirect to="/collectibles" />
             </Route>
 
-            {/* 404 */}
             <Route component={NotFound} />
           </Switch>
         </SuspenseWithChunkError>

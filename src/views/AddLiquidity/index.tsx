@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
+import styled from 'styled-components'
 import { BigNumber } from '@ethersproject/bignumber'
 import { TransactionResponse } from '@ethersproject/providers'
 import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@pancakeswap/sdk'
@@ -19,7 +20,6 @@ import { AppHeader, AppBody } from '../../components/App'
 import { MinimalPositionCard } from '../../components/PositionCard'
 import Row, { RowBetween } from '../../components/Layout/Row'
 import ConnectWalletButton from '../../components/ConnectWalletButton'
-
 import { ROUTER_ADDRESS } from '../../config/constants'
 import { PairState } from '../../hooks/usePairs'
 import { useCurrency } from '../../hooks/Tokens'
@@ -27,7 +27,6 @@ import { ApprovalState, useApproveCallback } from '../../hooks/useApproveCallbac
 import useTransactionDeadline from '../../hooks/useTransactionDeadline'
 import { Field, resetMintState } from '../../state/mint/actions'
 import { useDerivedMintInfo, useMintActionHandlers, useMintState } from '../../state/mint/hooks'
-
 import { useTransactionAdder } from '../../state/transactions/hooks'
 import { useGasPrice, useIsExpertMode, useUserSlippageTolerance } from '../../state/user/hooks'
 import { calculateGasMargin, calculateSlippageAmount, getRouterContract } from '../../utils'
@@ -38,6 +37,31 @@ import ConfirmAddModalBottom from './ConfirmAddModalBottom'
 import { currencyId } from '../../utils/currencyId'
 import PoolPriceBar from './PoolPriceBar'
 import Page from '../Page'
+
+
+const StyledButtonWrap = styled.div`
+margin-bottom:40px;
+margin-top:20px;
+
+
+& button{
+  display: flex;
+  width: 100%;
+  margin: 0;
+  justify-content: center;
+  padding: 20px;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: linear-gradient(
+    87.95deg,#6025F5 -30.37%,#FF5555 98.24%);
+    box-shadow: 0px 5px 12px 1px rgb(255 85 218 / 37%);
+    border-radius: 65px;
+  }
+`
 
 export default function AddLiquidity({
   match: {
@@ -385,68 +409,69 @@ export default function AddLiquidity({
               </LightCard>
             </>
           )}
-
-          {addIsUnsupported ? (
-            <Button disabled mb="4px">
-              {t('Unsupported Asset')}
-            </Button>
-          ) : !account ? (
-            <ConnectWalletButton mb="40px" mt="1rem" />
-          ) : (
-            <AutoColumn gap="md">
-              {(approvalA === ApprovalState.NOT_APPROVED ||
-                approvalA === ApprovalState.PENDING ||
-                approvalB === ApprovalState.NOT_APPROVED ||
-                approvalB === ApprovalState.PENDING) &&
-                isValid && (
-                  <RowBetween>
-                    {approvalA !== ApprovalState.APPROVED && (
-                      <Button
-                        onClick={approveACallback}
-                        disabled={approvalA === ApprovalState.PENDING}
-                        width={approvalB !== ApprovalState.APPROVED ? '48%' : '100%'}
-                      >
-                        {approvalA === ApprovalState.PENDING ? (
-                          <Dots>{t('Enabling %asset%', { asset: currencies[Field.CURRENCY_A]?.symbol })}</Dots>
-                        ) : (
-                          t('Enable %asset%', { asset: currencies[Field.CURRENCY_A]?.symbol })
-                        )}
-                      </Button>
-                    )}
-                    {approvalB !== ApprovalState.APPROVED && (
-                      <Button
-                        onClick={approveBCallback}
-                        disabled={approvalB === ApprovalState.PENDING}
-                        width={approvalA !== ApprovalState.APPROVED ? '48%' : '100%'}
-                      >
-                        {approvalB === ApprovalState.PENDING ? (
-                          <Dots>{t('Enabling %asset%', { asset: currencies[Field.CURRENCY_B]?.symbol })}</Dots>
-                        ) : (
-                          t('Enable %asset%', { asset: currencies[Field.CURRENCY_B]?.symbol })
-                        )}
-                      </Button>
-                    )}
-                  </RowBetween>
-                )}
-              <Button
-                variant={
-                  !isValid && !!parsedAmounts[Field.CURRENCY_A] && !!parsedAmounts[Field.CURRENCY_B]
-                    ? 'danger'
-                    : 'primary'
-                }
-                onClick={() => {
-                  if (expertMode) {
-                    onAdd()
-                  } else {
-                    onPresentAddLiquidityModal()
-                  }
-                }}
-                disabled={!isValid || approvalA !== ApprovalState.APPROVED || approvalB !== ApprovalState.APPROVED}
-              >
-                {error ?? t('Supply')}
+          <StyledButtonWrap >
+            {addIsUnsupported ? (
+              <Button disabled mb="4px">
+                {t('Unsupported Asset')}
               </Button>
-            </AutoColumn>
-          )}
+            ) : !account ? (
+              <ConnectWalletButton mb="40px" mt="1rem" />
+            ) : (
+              <AutoColumn gap="md">
+                {(approvalA === ApprovalState.NOT_APPROVED ||
+                  approvalA === ApprovalState.PENDING ||
+                  approvalB === ApprovalState.NOT_APPROVED ||
+                  approvalB === ApprovalState.PENDING) &&
+                  isValid && (
+                    <RowBetween>
+                      {approvalA !== ApprovalState.APPROVED && (
+                        <Button
+                          onClick={approveACallback}
+                          disabled={approvalA === ApprovalState.PENDING}
+                          width={approvalB !== ApprovalState.APPROVED ? '48%' : '100%'}
+                        >
+                          {approvalA === ApprovalState.PENDING ? (
+                            <Dots>{t('Enabling %asset%', { asset: currencies[Field.CURRENCY_A]?.symbol })}</Dots>
+                          ) : (
+                            t('Enable %asset%', { asset: currencies[Field.CURRENCY_A]?.symbol })
+                          )}
+                        </Button>
+                      )}
+                      {approvalB !== ApprovalState.APPROVED && (
+                        <Button
+                          onClick={approveBCallback}
+                          disabled={approvalB === ApprovalState.PENDING}
+                          width={approvalA !== ApprovalState.APPROVED ? '48%' : '100%'}
+                        >
+                          {approvalB === ApprovalState.PENDING ? (
+                            <Dots>{t('Enabling %asset%', { asset: currencies[Field.CURRENCY_B]?.symbol })}</Dots>
+                          ) : (
+                            t('Enable %asset%', { asset: currencies[Field.CURRENCY_B]?.symbol })
+                          )}
+                        </Button>
+                      )}
+                    </RowBetween>
+                  )}
+                <Button
+                  variant={
+                    !isValid && !!parsedAmounts[Field.CURRENCY_A] && !!parsedAmounts[Field.CURRENCY_B]
+                      ? 'danger'
+                      : 'primary'
+                  }
+                  onClick={() => {
+                    if (expertMode) {
+                      onAdd()
+                    } else {
+                      onPresentAddLiquidityModal()
+                    }
+                  }}
+                  disabled={!isValid || approvalA !== ApprovalState.APPROVED || approvalB !== ApprovalState.APPROVED}
+                >
+                  {error ?? t('Supply')}
+                </Button>
+              </AutoColumn>
+            )}
+          </StyledButtonWrap>
         </AutoColumn>
       </AppBody>
       {!addIsUnsupported ? (

@@ -24,6 +24,29 @@ padding: 0 50px;
 width: 100%;
 display: block;`
 
+
+const StyledButtonWrap = styled.div`
+
+margin-bottom:20px;
+  & a{
+    display: flex;
+    width: 100%;
+    margin: 0;
+    justify-content: center;
+    padding: 20px;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background: linear-gradient(87.95deg, #6025F5 -30.37%, #FF5555 98.24%);
+    box-shadow: 0px 5px 12px 1px rgba(255, 85, 218, 0.37);
+    border-radius: 65px;
+}
+
+`
+
 export default function Pool() {
   const { account } = useActiveWeb3React()
   const { t } = useTranslation()
@@ -110,9 +133,11 @@ export default function Pool() {
         </Body>
         <CardFooterWrap>
           <CardFooter style={{ paddingRight: "0", paddingLeft: "0", textAlign: 'center' }}>
-            <Button id="join-pool-button" as={Link} to="/add" width="100%" startIcon={<AddIcon color="white" />}>
-              {t('Add Liquidity')}
-            </Button>
+            <StyledButtonWrap >
+              <Button id="join-pool-button" as={Link} to="/add" width="100%" startIcon={<AddIcon color="white" />}>
+                {t('Add Liquidity')}
+              </Button>
+            </StyledButtonWrap >
           </CardFooter>
         </CardFooterWrap>
       </AppBody>

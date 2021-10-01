@@ -29,6 +29,28 @@ const StyledCard = styled(Card)`
   }
 `
 
+
+const StyledButtonWrap = styled.div`
+
+& button{
+  display: flex;
+  width: 100%;
+  margin: 0;
+  justify-content: center;
+  padding: 14px 20px;
+  font-style: normal;
+font-weight: 900;
+font-size: 14px;
+line-height: 17px;
+background: transparent;
+text-align: center;
+border-radius: 45px;
+text-transform: uppercase;
+color: #EF478C;
+border: 1px solid #EF478C;
+  }
+`
+
 const BountyCard = () => {
   const { t } = useTranslation()
   const {
@@ -104,14 +126,16 @@ const BountyCard = () => {
                 <Skeleton height={16} width={62} />
               )}
             </Flex>
-            <Button
-              disabled={!dollarBountyToDisplay || !cakeBountyToDisplay || !callFee}
-              onClick={onPresentBountyModal}
-              scale="sm"
-              id="clickClaimVaultBounty"
-            >
-              {t('Claim')}
-            </Button>
+            <StyledButtonWrap>
+              <Button
+                disabled={!dollarBountyToDisplay || !cakeBountyToDisplay || !callFee}
+                onClick={onPresentBountyModal}
+                scale="sm"
+                id="clickClaimVaultBounty"
+              >
+                {t('Claim')}
+              </Button>
+            </StyledButtonWrap>
           </Flex>
         </CardBody>
       </StyledCard>

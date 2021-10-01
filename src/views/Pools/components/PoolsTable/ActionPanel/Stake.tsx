@@ -23,6 +23,17 @@ const IconButtonWrapper = styled.div`
   display: flex;
 `
 
+
+const StyledButtonWrap = styled.div`
+width: 100%;
+& button{
+  margin-left: 0;
+  margin-top: 10px;
+  padding: 8px 10px;
+  width: 100%;
+  }
+`
+
 interface StackedActionProps {
   pool: DeserializedPool
   userDataLoaded: boolean
@@ -134,12 +145,14 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool, userDataLoa
     return (
       <ActionContainer>
         <ActionTitles>
-          <Text fontSize="12px" bold color="textSubtle" as="span" textTransform="uppercase">
+          <Text fontSize="12px" bold color="textSubtle" as="span" textAlign="center">
             {t('Start staking')}
           </Text>
         </ActionTitles>
         <ActionContent>
-          <ConnectWalletButton width="100%" />
+          <StyledButtonWrap>
+            <ConnectWalletButton width="100%" />
+          </StyledButtonWrap>
         </ActionContent>
       </ActionContainer>
     )

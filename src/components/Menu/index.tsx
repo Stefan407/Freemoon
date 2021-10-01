@@ -21,7 +21,6 @@ const Menu = (props) => {
 
   const activeMenuItem = getActiveMenuItem({ menuConfig: config(t), pathname })
   const activeSubMenuItem = getActiveSubMenuItem({ menuItem: activeMenuItem, pathname })
-
   return (
     <UikitMenu
       userMenu={<UserMenu />}
@@ -37,7 +36,7 @@ const Menu = (props) => {
       // footerLinks={footerLinks(t)}
       activeItem={activeMenuItem?.href}
       activeSubItem={activeSubMenuItem?.href}
-      // buyCakeLabel={t('Buy CAKE')}
+      buyCakeLabel={t('Buy CAKE')}
       profile={{
         username: profile?.username,
         image: profile?.nft ? `/images/nfts/${profile.nft?.images.sm}` : undefined,

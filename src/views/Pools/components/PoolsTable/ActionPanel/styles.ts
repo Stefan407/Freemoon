@@ -25,6 +25,8 @@ export const ActionContainer = styled.div<{ isAutoVault?: boolean }>`
 export const ActionTitles = styled.div`
   font-weight: 600;
   font-size: 12px;
+  display: flex;
+  justify-content: center;
 `
 
 export const ActionContent = styled.div`

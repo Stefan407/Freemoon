@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react'
+import styled from 'styled-components'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { useDispatch } from 'react-redux'
 import { Modal, ModalBody, Text, Button, Flex, InjectedModalProps } from '@pancakeswap/uikit'
@@ -21,6 +22,27 @@ function renderTransactions(transactions: TransactionDetails[]) {
     </Flex>
   )
 }
+
+
+const StyledButtonWrap = styled.div`
+  & button{
+    display: flex;
+    width: 100%;
+    margin: 0;
+    justify-content: center;
+    padding: 10px 20px;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background: linear-gradient(
+87.95deg,#6025F5 -30.37%,#FF5555 98.24%);
+    box-shadow: 0px 5px 12px 1px rgb(255 85 218 / 37%);
+    border-radius: 65px;
+}
+`
 
 const TransactionsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
   const { account, chainId } = useActiveWeb3React()
@@ -62,7 +84,9 @@ const TransactionsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
           )}
         </ModalBody>
       ) : (
-        <ConnectWalletButton />
+        <StyledButtonWrap >
+          <ConnectWalletButton />
+        </StyledButtonWrap>
       )}
     </Modal>
   )

@@ -27,6 +27,15 @@ const IconButtonWrapper = styled.div`
   display: flex;
 `
 
+const StyledButtonWrap = styled.div`
+width: 100%;
+& button{
+  margin-left: 0;
+  margin-top: 10px;
+  padding: 8px 10px;
+  width: 100%;
+  }
+`
 interface StackedActionProps extends FarmWithStakedValue {
   userDataReady: boolean
   lpLabel?: string
@@ -123,12 +132,14 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
     return (
       <ActionContainer>
         <ActionTitles>
-          <Text bold textTransform="uppercase" mb="5px" ml="auto" mr="auto" color="textSubtle" fontSize="12px">
+          <Text bold textTransform="uppercase" textAlign="center" mb="5px" ml="auto" mr="auto" color="textSubtle" fontSize="12px">
             {t('Start Farming')}
           </Text>
         </ActionTitles>
         <ActionContent>
-          <ConnectWalletButton width="100%" />
+        <StyledButtonWrap>
+            <ConnectWalletButton width="100%" />
+          </StyledButtonWrap>
         </ActionContent>
       </ActionContainer>
     )
