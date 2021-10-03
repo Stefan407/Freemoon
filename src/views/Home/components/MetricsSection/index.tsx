@@ -70,9 +70,9 @@ const Stats = () => {
 
   return (
     <Flex justifyContent="center" alignItems="center" flexDirection="column">
-      <Heading textAlign="center" color="text" scale="xl">Welcome to</Heading>
+      <Heading textAlign="center" color="#fff" scale="xl">Welcome to</Heading>
       <Image src="/Freemoon.png" height={65} width={400} alt={t('View token on CoinMarketCap')} />
-      <Text mb="55px" textAlign="center" color="text">The #1 AMM and yield farm on Binance Smart Chain.</Text>
+      <Text mb="55px" textAlign="center" color="#fff">The #1 AMM and yield farm on Binance Smart Chain.</Text>
       <Flex flexWrap="wrap" justifyContent="center" >
         <HomeCard {...FarmsIcon} >
           <Farms />

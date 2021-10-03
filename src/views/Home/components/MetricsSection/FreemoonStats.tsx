@@ -6,18 +6,17 @@ const FreemoonStars: React.FC = () => {
 
 
   const StyledPage = styled.div`
-display: flex;
-flex-direction: column;
-padding: 40px;
-background: #242249;
-min-height: 290px;
-
-`
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    background: ${({ theme }) => theme.isDark ? "#242249" : "#FFF"} ;
+    min-height: 290px;
+  `
 
   return (
     <StyledPage>
 
-      <Text fontSize="24px" fontWeight="900" lineHeight="29px" color="white" mb="25px">Freemoon Stats</Text>
+      <Text fontSize="24px" fontWeight="900" lineHeight="29px" color="text" mb="25px">Freemoon Stats</Text>
       <Flex justifyContent="flex-start">
         <Flex mr="80px" flexDirection="column">
           <Text fontSize="14px" fontWeight="normal" lineHeight="30px" color="#C5C5DF">Market Cap</Text>

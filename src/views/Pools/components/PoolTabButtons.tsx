@@ -61,13 +61,9 @@ const PoolTabButtons = ({ stakedOnly, setStakedOnly, hasStakeInFinishedPools, vi
   const liveOrFinishedSwitch = (
     <Wrapper>
       <ButtonMenu activeIndex={isExact ? 0 : 1} scale="sm" variant="subtle">
-        <ButtonMenuItem as={Link} to={`${url}`}>
-          {t('Live')}
-        </ButtonMenuItem>
+        <ButtonMenuItem as={Link} to={`${url}`}> {t('Live')} </ButtonMenuItem>
         <NotificationDot show={hasStakeInFinishedPools}>
-          <ButtonMenuItem id="finished-pools-button" as={Link} to={`${url}/history`}>
-            {t('Finished')}
-          </ButtonMenuItem>
+          <ButtonMenuItem id="finished-pools-button" as={Link} to={`${url}/history`}> {t('Finished')} </ButtonMenuItem>
         </NotificationDot>
       </ButtonMenu>
     </Wrapper>
@@ -76,7 +72,7 @@ const PoolTabButtons = ({ stakedOnly, setStakedOnly, hasStakeInFinishedPools, vi
   const stakedOnlySwitch = (
     <ToggleWrapper>
       <Toggle checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} scale="md" />
-      <Text> {t('Staked only')}</Text>
+      <Text color="#fff"> {t('Staked only')}</Text>
     </ToggleWrapper>
   )
 

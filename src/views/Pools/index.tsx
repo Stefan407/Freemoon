@@ -53,7 +53,7 @@ const PoolControls = styled.div`
   ${({ theme }) => theme.mediaQueries.sm} {
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 16px 32px;
+    padding: 16px 0;
     margin-bottom: 0;
   }
 `
@@ -256,10 +256,10 @@ const Pools: React.FC = () => {
       <PageHeader>
         <Flex justifyContent="space-between" flexDirection={['column', null, null, 'row']}>
           <Flex flex="1" flexDirection="column" mr={['8px', 0]} justifyContent="center">
-            <Heading as="h1" scale="xl" color="text" mb="14px">
+            <Heading as="h1" scale="xl" color="#fff" mb="14px">
               {t('Galaxy Pools')}
             </Heading>
-            <Heading scale="md" color="text">
+            <Heading scale="md" color="#fff">
               {t('Just stake some tokens to earn. High APR, low risk.')}
             </Heading>
           </Flex>

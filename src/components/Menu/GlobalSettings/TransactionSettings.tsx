@@ -144,20 +144,16 @@ const SlippageTabs = () => {
             {slippageError === SlippageError.InvalidInput
               ? t('Enter a valid slippage percentage')
               : slippageError === SlippageError.RiskyLow
-              ? t('Your transaction may fail')
-              : t('Your transaction may be frontrun')}
+                ? t('Your transaction may fail')
+                : t('Your transaction may be frontrun')}
           </Text>
         )}
       </Flex>
-      <Flex justifyContent="space-between" alignItems="center" mb="24px">
-        <Flex alignItems="center">
-          <Text>{t('Tx deadline (mins)')}</Text>
-          <QuestionHelper
-            text={t('Your transaction will revert if it is left confirming for longer than this time.')}
-            placement="top-start"
-            ml="4px"
-          />
-        </Flex>
+      <Flex alignItems="center" >
+        <Text>{t('Transaction deadline')}</Text>
+        <QuestionHelper text={t('Your transaction will revert if it is left confirming for longer than this time.')} placement="top-start" ml="4px" />
+      </Flex>
+      <Flex justifyContent="flex-start" alignItems="center" mb="24px" mt="24px">
         <Flex>
           <Box width="52px" mt="4px">
             <Input
@@ -171,6 +167,9 @@ const SlippageTabs = () => {
               onChange={(e) => parseCustomDeadline(e.target.value)}
             />
           </Box>
+        </Flex>
+        <Flex alignItems="center" ml="15px">
+          <Text>{t('Minutes')}</Text>
         </Flex>
       </Flex>
     </Flex>

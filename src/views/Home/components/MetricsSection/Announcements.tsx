@@ -4,15 +4,15 @@ import styled from 'styled-components'
 
 const Announcements: React.FC = () => {
   const StyledPage = styled.div`
-display: flex;
-flex-direction: column;
-background: #242249;
-padding: 40px;
-`
+    display: flex;
+    flex-direction: column;
+    background: ${({ theme }) => theme.isDark ? "#242249" : "#FFF"} ;
+    padding: 40px;
+  `
 
   return (
     <StyledPage>
-      <Text fontSize="24px" fontWeight="900" lineHeight="29px" color="white" mb="25px">Announcements</Text>
+      <Text fontSize="24px" fontWeight="900" lineHeight="29px" color="text" mb="25px">Announcements</Text>
       {/* <div dangerouslySetInnerHTML={{ __html: "<iframe src='https://twitter.com/Bitcoin' />" }} /> */}
     </StyledPage >
   )

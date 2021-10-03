@@ -8,11 +8,11 @@ const StyledPage = styled.div`
   flex-direction: column;
   background: url(/bgTvl.png);
   padding: 40px;
-    min-height: 290px;
-    justify-content: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-`
+  min-height: 290px;
+  justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  `
 
 const Tvl: React.FC = () => {
 

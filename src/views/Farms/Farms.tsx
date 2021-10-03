@@ -42,7 +42,7 @@ const ControlContainer = styled.div`
   ${({ theme }) => theme.mediaQueries.sm} {
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 16px 32px;
+    padding: 16px 0;
     margin-bottom: 0;
   }
 `
@@ -370,12 +370,8 @@ const Farms: React.FC = () => {
   return (
     <>
       <PageHeader>
-        <Heading as="h1" scale="xxl" color="text" mb="24px">
-          {t('Farms')}
-        </Heading>
-        <Heading scale="lg" color="text">
-          {t('Stake LP tokens to earn.')}
-        </Heading>
+        <Heading as="h1" scale="xxl" color="#fff" mb="24px"> {t('Farms')} </Heading>
+        <Heading scale="lg" color="#fff"> {t('Stake LP tokens to earn.')} </Heading>
         {/* <NavLink exact activeClassName="active" to="/farms/auction" id="lottery-pot-banner">
           <Button p="0" variant="text">
             <Text color="primary" bold fontSize="16px" mr="4px">
@@ -390,13 +386,8 @@ const Farms: React.FC = () => {
           <ViewControls>
             <ToggleView viewMode={viewMode} onToggle={(mode: ViewMode) => setViewMode(mode)} />
             <ToggleWrapper>
-              <Toggle
-                id="staked-only-farms"
-                checked={stakedOnly}
-                onChange={() => setStakedOnly(!stakedOnly)}
-                scale="sm"
-              />
-              <Text> {t('Staked only')}</Text>
+              <Toggle color="red" id="staked-only-farms" checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} scale="md" />
+              <Text color="#fff"> {t('Staked only')}</Text>
             </ToggleWrapper>
             <FarmTabButtons hasStakeInFinishedFarms={stakedInactiveFarms.length > 0} />
           </ViewControls>

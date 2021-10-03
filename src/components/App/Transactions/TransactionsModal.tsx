@@ -25,6 +25,8 @@ function renderTransactions(transactions: TransactionDetails[]) {
 
 
 const StyledButtonWrap = styled.div`
+  padding: 0 24px;
+
   & button{
     display: flex;
     width: 100%;
@@ -41,6 +43,7 @@ const StyledButtonWrap = styled.div`
 87.95deg,#6025F5 -30.37%,#FF5555 98.24%);
     box-shadow: 0px 5px 12px 1px rgb(255 85 218 / 37%);
     border-radius: 65px;
+
 }
 `
 
@@ -65,7 +68,7 @@ const TransactionsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
   }, [dispatch, chainId])
 
   return (
-    <Modal title={t('Recent Transactions')} headerBackground="gradients.cardHeader" onDismiss={onDismiss}>
+    <Modal title={t('Recent Transactions')} color="red" headerBackground="gradients.cardHeader" onDismiss={onDismiss}>
       {account ? (
         <ModalBody>
           {!!pending.length || !!confirmed.length ? (

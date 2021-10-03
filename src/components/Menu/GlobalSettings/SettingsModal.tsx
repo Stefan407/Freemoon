@@ -1,6 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
-import { Text, Flex, Modal, InjectedModalProps, ThemeSwitcher } from '@pancakeswap/uikit'
+// import styled from 'styled-components'
+import { Flex, Modal, InjectedModalProps } from '@pancakeswap/uikit'
 // import {
 //   useAudioModeManager,
 //   useExpertModeManager,
@@ -9,19 +9,19 @@ import { Text, Flex, Modal, InjectedModalProps, ThemeSwitcher } from '@pancakesw
 // } from 'state/user/hooks'
 import { useTranslation } from 'contexts/Localization'
 // import { useSwapActionHandlers } from 'state/swap/hooks'
-import useTheme from 'hooks/useTheme'
+// import useTheme from 'hooks/useTheme'
 // import QuestionHelper from '../../QuestionHelper'
 import TransactionSettings from './TransactionSettings'
 // import ExpertModal from './ExpertModal'
 // import GasSettings from './GasSettings'
 
-const ScrollableContainer = styled(Flex)`
-  flex-direction: column;
-  max-height: 400px;
-  ${({ theme }) => theme.mediaQueries.sm} {
-    max-height: none;
-  }
-`
+// const ScrollableContainer = styled(Flex)`
+//   flex-direction: column;
+//   max-height: 400px;
+//   ${({ theme }) => theme.mediaQueries.sm} {
+//     max-height: none;
+//   }
+// `
 
 const SettingsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
   // const [showConfirmExpertModal, setShowConfirmExpertModal] = useState(false)
@@ -32,7 +32,7 @@ const SettingsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
   // const { onChangeRecipient } = useSwapActionHandlers()
 
   const { t } = useTranslation()
-  const { theme, isDark, toggleTheme } = useTheme()
+  // const { theme } = useTheme()
 
   // if (showConfirmExpertModal) {
   //   return (
@@ -63,24 +63,24 @@ const SettingsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
       onDismiss={onDismiss}
       style={{ maxWidth: '420px' }}
     >
-      <ScrollableContainer>
-        <Flex pb="24px" flexDirection="column">
-          {/* <Text bold textTransform="uppercase" fontSize="12px" color="secondary" mb="24px">
+      {/* <ScrollableContainer> */}
+      {/* <Flex pb="24px" flexDirection="column">
+          <Text bold textTransform="uppercase" fontSize="12px" color="secondary" mb="24px">
             {t('Global')}
-          </Text> */}
+          </Text>
           <Flex justifyContent="space-between">
             <Text mb="24px">{t('Dark mode')}</Text>
             <ThemeSwitcher isDark={isDark} toggleTheme={toggleTheme} />
           </Flex>
-          {/* <GasSettings /> */}
-        </Flex>
-        <Flex pt="24px" flexDirection="column" borderTop={`1px ${theme.colors.cardBorder} solid`}>
-          {/* <Text bold textTransform="uppercase" fontSize="12px" color="secondary" mb="24px">
+          <GasSettings />
+        </Flex> */}
+      <Flex pl="24px" pr="24px" flexDirection="column">
+        {/* <Text bold textTransform="uppercase" fontSize="12px" color="secondary" mb="24px">
             {t('Swaps & Liquidity')}
           </Text> */}
-          <TransactionSettings />
-        </Flex>
-        {/* <Flex justifyContent="space-between" alignItems="center" mb="24px">
+        <TransactionSettings />
+      </Flex>
+      {/* <Flex justifyContent="space-between" alignItems="center" mb="24px">
           <Flex alignItems="center">
             <Text>{t('Expert Mode')}</Text>
             <QuestionHelper
@@ -116,7 +116,7 @@ const SettingsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
           </Flex>
           <PancakeToggle checked={audioPlay} onChange={toggleSetAudioMode} scale="md" />
         </Flex> */}
-      </ScrollableContainer>
+      {/* </ScrollableContainer> */}
     </Modal>
   )
 }
