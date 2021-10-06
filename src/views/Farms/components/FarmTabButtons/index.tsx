@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useLocation, Link, useRouteMatch } from 'react-router-dom'
-import { ButtonMenu, ButtonMenuItem, NotificationDot } from '@pancakeswap/uikit'
+import { ButtonMenu, ButtonMenuItem } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 
 interface FarmTabButtonsProps {
   hasStakeInFinishedFarms: boolean
 }
 
-const FarmTabButtons: React.FC<FarmTabButtonsProps> = ({ hasStakeInFinishedFarms }) => {
+const FarmTabButtons: React.FC<FarmTabButtonsProps> = () => {
   const { url } = useRouteMatch()
   const location = useLocation()
   const { t } = useTranslation()
@@ -35,11 +35,9 @@ const FarmTabButtons: React.FC<FarmTabButtonsProps> = ({ hasStakeInFinishedFarms
         <ButtonMenuItem as={Link} to={`${url}`}>
           {t('Live')}
         </ButtonMenuItem>
-        <NotificationDot show={hasStakeInFinishedFarms}>
-          <ButtonMenuItem id="finished-farms-button" as={Link} to={`${url}/history`}>
-            {t('Finished')}
-          </ButtonMenuItem>
-        </NotificationDot>
+        <ButtonMenuItem id="finished-farms-button" as={Link} to={`${url}/history`}>
+          {t('Finished')}
+        </ButtonMenuItem>
       </ButtonMenu>
     </Wrapper>
   )

@@ -28,12 +28,12 @@ const IconButtonWrapper = styled.div`
 `
 
 const StyledButtonWrap = styled.div`
-width: 100%;
-& button{
-  margin-left: 0;
-  margin-top: 10px;
-  padding: 8px 10px;
   width: 100%;
+  & button{
+    margin-left: 0;
+    margin-top: 10px;
+    padding: 8px 10px;
+    width: 100%;
   }
 `
 interface StackedActionProps extends FarmWithStakedValue {
@@ -137,7 +137,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
           </Text>
         </ActionTitles>
         <ActionContent>
-        <StyledButtonWrap>
+          <StyledButtonWrap>
             <ConnectWalletButton width="100%" />
           </StyledButtonWrap>
         </ActionContent>

@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 
 const StyledButton = styled.button`
-background: linear-gradient( 87.95deg,#6025F5 -30.37%,#FF5555 98.24%);
+      background: linear-gradient( 87.95deg,#6025F5 -30.37%,#FF5555 98.24%);
       box-shadow: 0px 5px 12px 1px rgb(255 85 218 / 37%);
       border-radius: 45px;
       margin: 0 auto;

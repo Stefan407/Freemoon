@@ -16,6 +16,14 @@ import useApproveFarm from '../../hooks/useApproveFarm'
 const Action = styled.div`
   padding-top: 16px;
 `
+
+const StyledButtonWrap = styled.div`
+  & button{
+    width: 100%;
+    margin-top: 20px;
+  }
+`
+
 export interface FarmWithStakedValue extends DeserializedFarm {
   apr?: number
 }
@@ -90,7 +98,9 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, account, addLiquidi
           {t('Staked')}
         </Text>
       </Flex>
-      {!account ? <ConnectWalletButton mt="8px" width="100%" /> : renderApprovalOrStakeButton()}
+      <StyledButtonWrap>
+        {!account ? <ConnectWalletButton mt="8px" width="100%" /> : renderApprovalOrStakeButton()}
+      </StyledButtonWrap>
     </Action>
   )
 }

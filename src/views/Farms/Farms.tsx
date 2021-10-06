@@ -370,16 +370,12 @@ const Farms: React.FC = () => {
   return (
     <>
       <PageHeader>
-        <Heading as="h1" scale="xxl" color="#fff" mb="24px"> {t('Farms')} </Heading>
-        <Heading scale="lg" color="#fff"> {t('Stake LP tokens to earn.')} </Heading>
-        {/* <NavLink exact activeClassName="active" to="/farms/auction" id="lottery-pot-banner">
-          <Button p="0" variant="text">
-            <Text color="primary" bold fontSize="16px" mr="4px">
-              {t('Community Auctions')}
-            </Text>
-            <ArrowForwardIcon color="primary" />
-          </Button>
-        </NavLink> */}
+        <Flex justifyContent="space-between" flexDirection={['column', null, null, 'row']}>
+          <Flex flex="1" flexDirection="column" mr={['8px', 0]} justifyContent="center">
+            <Heading as="h1" scale="xl" color="#fff" mb="14px">  {t('Farms')}  </Heading>
+            <Heading scale="md" color="#fff"> {t('Stake LP tokens to earn.')}  </Heading>
+          </Flex>
+        </Flex>
       </PageHeader>
       <Page>
         <ControlContainer>
