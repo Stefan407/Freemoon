@@ -29,6 +29,7 @@ theme.colors.success = "linear-gradient(87.95deg, #6025F5 -30.37%, #FF5555 98.24
 theme.colors.disabled = "#6F6C99";
 theme.colors.backgroundDisabled = "transparent";
 theme.colors.secondary = "#6F6C99";
+theme.colors.tertiary = "#343567";
 theme.colors.dropdown = "#242249";
 theme.card.background = "#242249";
 
