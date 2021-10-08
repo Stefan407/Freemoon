@@ -372,8 +372,8 @@ const Farms: React.FC = () => {
       <PageHeader>
         <Flex justifyContent="space-between" flexDirection={['column', null, null, 'row']}>
           <Flex flex="1" flexDirection="column" mr={['8px', 0]} justifyContent="center">
-            <Heading as="h1" scale="xl" color="#fff" mb="14px">  {t('Farms')}  </Heading>
-            <Heading scale="md" color="#fff"> {t('Stake LP tokens to earn.')}  </Heading>
+            <Heading as="h1" scale="xl" color="text" mb="14px">  {t('Farms')}  </Heading>
+            <Heading scale="md" color="text"> {t('Stake LP tokens to earn.')}  </Heading>
           </Flex>
         </Flex>
       </PageHeader>

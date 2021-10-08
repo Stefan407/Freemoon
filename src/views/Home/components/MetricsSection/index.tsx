@@ -1,5 +1,6 @@
 import React from 'react'
 import { Heading, Flex, Text, Image } from '@pancakeswap/uikit'
+import useTheme from 'hooks/useTheme'
 import { useTranslation } from 'contexts/Localization'
 import HomeCard, { HomeCardData } from '../HomeCard'
 import Announcements from './Announcements'
@@ -9,6 +10,7 @@ import FreemoonStars from './FreemoonStats'
 
 const Stats = () => {
   const { t } = useTranslation()
+  const { theme } = useTheme()
 
   const FarmsIcon: HomeCardData = {
     icon: <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -70,9 +72,9 @@ const Stats = () => {
 
   return (
     <Flex justifyContent="center" alignItems="center" flexDirection="column">
-      <Heading textAlign="center" color="#fff" scale="xl">Welcome to</Heading>
-      <Image src="/Freemoon.png" height={65} width={400} alt={t('View token on CoinMarketCap')} />
-      <Text mb="55px" textAlign="center" color="#fff">The #1 AMM and yield farm on Binance Smart Chain.</Text>
+      <Heading textAlign="center" color="text" scale="xl">Welcome to</Heading>
+      <Image src={`${theme.isDark ? "/Freemoon.png" : "/freemoon-l.svg"}`} height={65} width={400} alt={t('View token on CoinMarketCap')} />
+      <Text mb="55px" mt="10px" textAlign="center" color="text">The #1 AMM and yield farm on Binance Smart Chain.</Text>
       <Flex flexWrap="wrap" justifyContent="center" >
         <HomeCard {...FarmsIcon} >
           <Farms />

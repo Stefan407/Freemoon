@@ -2,6 +2,7 @@ import React, { lazy } from 'react'
 import { Router, Redirect, Route, Switch } from 'react-router-dom'
 import { ResetCSS } from '@pancakeswap/uikit'
 import BigNumber from 'bignumber.js'
+import styled from 'styled-components'
 import useEagerConnect from 'hooks/useEagerConnect'
 import useScrollOnRouteChange from 'hooks/useScrollOnRouteChange'
 import { usePollBlockNumber } from 'state/block/hooks'
@@ -21,7 +22,7 @@ import Swap from './views/Swap'
 import {
   RedirectDuplicateTokenIds,
   RedirectOldAddLiquidityPathStructure,
-  RedirectToAddLiquidity, 
+  RedirectToAddLiquidity,
 } from './views/AddLiquidity/redirects'
 import RedirectOldRemoveLiquidityPathStructure from './views/RemoveLiquidity/redirects'
 import { RedirectPathToSwapOnly, RedirectToSwap } from './views/Swap/redirects'
@@ -57,6 +58,15 @@ BigNumber.config({
   DECIMAL_PLACES: 80,
 })
 
+
+const ToggleWrapper = styled.div`
+  background: ${({ theme }) => theme.isDark ? "#141231" : "#F3F7FF"};
+`
+const ToggleItem = styled.div`
+  background: ${({ theme }) => theme.isDark ? "url(/bgHome.png) no-repeat top" : ""};
+  background-size: ${({ theme }) => theme.isDark ? "100%" : ""};
+`
+
 const App: React.FC = () => {
   usePollBlockNumber()
   useEagerConnect()
@@ -65,101 +75,105 @@ const App: React.FC = () => {
   useScrollOnRouteChange()
 
   return (
-    <Router history={history}>
-      <ResetCSS />
-      <GlobalStyle />
-      <GlobalCheckClaimStatus excludeLocations={[]} />
-      <Menu>
-        <SuspenseWithChunkError fallback={<PageLoader />}>
-          <Switch>
-            <Route path="/" exact>
-              <Home />
-            </Route>
-            <Route exact path="/farms/auction">
-              <FarmAuction />
-            </Route>
-            <Route path="/farms">
-              <Farms />
-            </Route>
-            <Route path="/pools">
-              <Pools />
-            </Route>
-            <Route path="/lottery">
-              <Lottery />
-            </Route>
-            <Route path="/ifo">
-              <Ifos />
-            </Route>
-            <Route path="/collectibles">
-              <Collectibles />
-            </Route>
-            <Route exact path="/teams">
-              <Teams />
-            </Route>
-            <Route path="/teams/:id">
-              <Team />
-            </Route>
-            <Route path="/profile">
-              <Profile />
-            </Route>
-            <Route path="/competition">
-              <TradingCompetition />
-            </Route>
-            <Route exact path="/prediction">
-              <Predictions />
-            </Route>
-            <Route path="/prediction/leaderboard">
-              <PredictionsLeaderboard />
-            </Route>
-            <Route exact path="/voting">
-              <Voting />
-            </Route>
-            <Route exact path="/voting/proposal/create">
-              <CreateProposal />
-            </Route>
-            <Route path="/voting/proposal/:id">
-              <Proposal />
-            </Route>
-            <Route path="/info">
-              <Info />
-            </Route>
+    <ToggleWrapper>
+      <ToggleItem>
+        <Router history={history}>
+          <ResetCSS />
+          <GlobalStyle />
+          <GlobalCheckClaimStatus excludeLocations={[]} />
+          <Menu>
+            <SuspenseWithChunkError fallback={<PageLoader />}>
+              <Switch>
+                <Route path="/" exact>
+                  <Home />
+                </Route>
+                <Route exact path="/farms/auction">
+                  <FarmAuction />
+                </Route>
+                <Route path="/farms">
+                  <Farms />
+                </Route>
+                <Route path="/pools">
+                  <Pools />
+                </Route>
+                <Route path="/lottery">
+                  <Lottery />
+                </Route>
+                <Route path="/ifo">
+                  <Ifos />
+                </Route>
+                <Route path="/collectibles">
+                  <Collectibles />
+                </Route>
+                <Route exact path="/teams">
+                  <Teams />
+                </Route>
+                <Route path="/teams/:id">
+                  <Team />
+                </Route>
+                <Route path="/profile">
+                  <Profile />
+                </Route>
+                <Route path="/competition">
+                  <TradingCompetition />
+                </Route>
+                <Route exact path="/prediction">
+                  <Predictions />
+                </Route>
+                <Route path="/prediction/leaderboard">
+                  <PredictionsLeaderboard />
+                </Route>
+                <Route exact path="/voting">
+                  <Voting />
+                </Route>
+                <Route exact path="/voting/proposal/create">
+                  <CreateProposal />
+                </Route>
+                <Route path="/voting/proposal/:id">
+                  <Proposal />
+                </Route>
+                <Route path="/info">
+                  <Info />
+                </Route>
 
-            <Route exact strict path="/swap" component={Swap} />
-            <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
-            <Route exact strict path="/send" component={RedirectPathToSwapOnly} />
-            <Route exact strict path="/find" component={PoolFinder} />
-            <Route exact strict path="/liquidity" component={Liquidity} />
-            <Route exact strict path="/create" component={RedirectToAddLiquidity} />
-            <Route exact path="/add" component={AddLiquidity} />
-            <Route exact path="/add/:currencyIdA" component={RedirectOldAddLiquidityPathStructure} />
-            <Route exact path="/add/:currencyIdA/:currencyIdB" component={RedirectDuplicateTokenIds} />
-            <Route exact path="/create" component={AddLiquidity} />
-            <Route exact path="/create/:currencyIdA" component={RedirectOldAddLiquidityPathStructure} />
-            <Route exact path="/create/:currencyIdA/:currencyIdB" component={RedirectDuplicateTokenIds} />
-            <Route exact strict path="/remove/:tokens" component={RedirectOldRemoveLiquidityPathStructure} />
-            <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
+                <Route exact strict path="/swap" component={Swap} />
+                <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
+                <Route exact strict path="/send" component={RedirectPathToSwapOnly} />
+                <Route exact strict path="/find" component={PoolFinder} />
+                <Route exact strict path="/liquidity" component={Liquidity} />
+                <Route exact strict path="/create" component={RedirectToAddLiquidity} />
+                <Route exact path="/add" component={AddLiquidity} />
+                <Route exact path="/add/:currencyIdA" component={RedirectOldAddLiquidityPathStructure} />
+                <Route exact path="/add/:currencyIdA/:currencyIdB" component={RedirectDuplicateTokenIds} />
+                <Route exact path="/create" component={AddLiquidity} />
+                <Route exact path="/create/:currencyIdA" component={RedirectOldAddLiquidityPathStructure} />
+                <Route exact path="/create/:currencyIdA/:currencyIdB" component={RedirectDuplicateTokenIds} />
+                <Route exact strict path="/remove/:tokens" component={RedirectOldRemoveLiquidityPathStructure} />
+                <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
 
-            <Route path="/pool">
-              <Redirect to="/liquidity" />
-            </Route>
-            <Route path="/staking">
-              <Redirect to="/pools" />
-            </Route>
-            <Route path="/syrup">
-              <Redirect to="/pools" />
-            </Route>
-            <Route path="/nft">
-              <Redirect to="/collectibles" />
-            </Route>
+                <Route path="/pool">
+                  <Redirect to="/liquidity" />
+                </Route>
+                <Route path="/staking">
+                  <Redirect to="/pools" />
+                </Route>
+                <Route path="/syrup">
+                  <Redirect to="/pools" />
+                </Route>
+                <Route path="/nft">
+                  <Redirect to="/collectibles" />
+                </Route>
 
-            <Route component={NotFound} />
-          </Switch>
-        </SuspenseWithChunkError>
-      </Menu>
-      <EasterEgg iterations={2} />
-      <ToastListener />
-      <DatePickerPortal />
-    </Router>
+                <Route component={NotFound} />
+              </Switch>
+            </SuspenseWithChunkError>
+          </Menu>
+          <EasterEgg iterations={2} />
+          <ToastListener />
+          <DatePickerPortal />
+        </Router>
+      </ToggleItem>
+    </ToggleWrapper>
   )
 }
 
