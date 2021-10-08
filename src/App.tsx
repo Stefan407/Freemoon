@@ -61,6 +61,7 @@ BigNumber.config({
 
 const ToggleWrapper = styled.div`
   background: ${({ theme }) => theme.isDark ? "#141231" : "#F3F7FF"};
+  margin-top: -1px;
 `
 const ToggleItem = styled.div`
   background: ${({ theme }) => theme.isDark ? "url(/bgHome.png) no-repeat top" : ""};
