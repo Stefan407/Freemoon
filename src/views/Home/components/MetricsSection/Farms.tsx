@@ -9,6 +9,9 @@ const Farms: React.FC = () => {
     flex-direction: column;
     background: ${({ theme }) => theme.isDark ? "#242249" : "#FFF"} ;
     padding: 40px;
+    @media screen and (max-width: 768px) {
+      padding: 20px
+    }
   `
 
   const StyledButton = styled.button`

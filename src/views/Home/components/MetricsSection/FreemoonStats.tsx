@@ -11,6 +11,9 @@ const FreemoonStars: React.FC = () => {
     padding: 40px;
     background: ${({ theme }) => theme.isDark ? "#242249" : "#FFF"} ;
     min-height: 290px;
+    @media screen and (max-width: 768px) {
+      padding: 20px
+    }
   `
 
   return (

@@ -12,6 +12,9 @@ const StyledPage = styled.div`
   justify-content: center;
   background-size: cover;
   background-repeat: no-repeat;
+  @media screen and (max-width: 768px) {
+    padding: 20px
+  }
   `
 
 const Tvl: React.FC = () => {

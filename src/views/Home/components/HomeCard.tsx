@@ -33,6 +33,12 @@ const IconWrapper = styled(Box)`
   justify-content: center;
   background: #36336B;
   border-radius: 30px;
+  @media screen and (max-width: 768px) {
+    top: 20px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+  }
 `
 
 interface HomeCardProps extends HomeCardData, CardProps {
