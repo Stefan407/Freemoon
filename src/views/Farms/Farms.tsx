@@ -96,10 +96,21 @@ const ViewControls = styled.div`
   }
 `
 
+const StyledImageWrap = styled.div`
+  & img{
+    width: 50px !important;
+    height: 50px !important;
+    max-width: 50px !important;
+    max-height: 50px !important;
+  }
+`
+
 const StyledImage = styled(Image)`
   margin-left: auto;
   margin-right: auto;
   margin-top: 58px;
+  width: 100px !important;
+  height: 100px !important;
 `
 const NUMBER_OF_FARMS_VISIBLE = 12
 
@@ -423,13 +434,13 @@ const Farms: React.FC = () => {
           </FilterContainer>
         </ControlContainer>
         {renderContent()}
-        {account && !userDataLoaded && stakedOnly && (
-          <Flex justifyContent="center">
-            <Loading />
-          </Flex>
-        )}
+        <Flex justifyContent="center">
+          <Loading />
+        </Flex>
         <div ref={observerRef} />
-        <StyledImage src="/Fremoone.gif" alt="Pancake illustration" width={120} height={103} />
+        <StyledImageWrap>
+          <StyledImage src="/Fremoone.gif" alt="Pancake illustration" width={100} height={100} />
+        </StyledImageWrap>
       </Page>
     </>
   )

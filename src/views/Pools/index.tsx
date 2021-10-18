@@ -58,6 +58,15 @@ const PoolControls = styled.div`
   }
 `
 
+const StyledImageWrap = styled.div`
+  & img{
+    width: 50px !important;
+    height: 50px !important;
+    max-width: 50px !important;
+    max-height: 50px !important;
+  }
+`
+
 const FilterContainer = styled.div`
   display: flex;
   align-items: center;
@@ -279,7 +288,7 @@ const Pools: React.FC = () => {
             setViewMode={setViewMode}
           />
           <FilterContainer>
-            <Text fontSize="12px"  bold color="#6F6C99" mr="10px" textTransform="uppercase">
+            <Text fontSize="12px" bold color="#6F6C99" mr="10px" textTransform="uppercase">
               {t('Sort by')}
             </Text>
             <LabelWrapper>
@@ -327,14 +336,17 @@ const Pools: React.FC = () => {
         )}
         {viewMode === ViewMode.CARD ? cardLayout : tableLayout}
         <div ref={observerRef} />
-        <Image
-          mx="auto"
-          mt="12px"
-          src="/Fremoone.gif"
-          alt="Pancake illustration"
-          width={50}
-          height={50}
-        />
+        <StyledImageWrap>
+          <Image
+            mx="auto"
+            mt="12px"
+            src="/Fremoone.gif"
+            alt="Pancake illustration"
+            width={50}
+            height={50}
+          />
+
+        </StyledImageWrap>
       </Page>
     </>
   )
