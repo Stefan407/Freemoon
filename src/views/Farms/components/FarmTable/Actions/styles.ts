@@ -25,7 +25,7 @@ export const ActionContainer = styled.div`
 
 export const ActionTitles = styled.div`
 display: flex;
-justify-content: center;
+justify-content: flex-start;
 `
 
 export const ActionContent = styled.div`

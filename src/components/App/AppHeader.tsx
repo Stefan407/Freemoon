@@ -16,7 +16,7 @@ interface Props {
 }
 
 const AppHeaderContainer = styled(Flex)`
-  padding: 40px 50px 0;
+  padding: 24px;
   width: 100%;
   `
   

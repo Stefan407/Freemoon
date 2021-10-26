@@ -2,7 +2,7 @@ import React, { useEffect, useCallback, useState, useMemo, useRef } from 'react'
 import { Route, useRouteMatch, useLocation } from 'react-router-dom'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
-import { Image, Heading, RowType, Toggle, Text, Flex } from '@pancakeswap/uikit'
+import { Image, RowType, Toggle, Text, Flex } from '@pancakeswap/uikit'
 import { ChainId } from '@pancakeswap/sdk'
 import styled from 'styled-components'
 import FlexLayout from 'components/Layout/Flex'
@@ -56,6 +56,22 @@ const ToggleWrapper = styled.div`
     margin-left: 8px;
   }
 `
+const Wraph = styled.div`
+  & h1{   
+    font-size: 50px;
+        line-height: 1;
+            margin-bottom: 20px;
+    font-weight: 800;
+    color: ${({ theme }) => theme.isDark ? "#FFF" : "#242249"} ;
+  }
+  & h2{
+    font-size: 20px;
+        line-height: 1;
+            margin-bottom: 20px;
+    font-weight: 600;
+    color: ${({ theme }) => theme.isDark ? "#FFF" : "#242249"} ;
+  }
+`
 
 const LabelWrapper = styled.div`
   > ${Text} {
@@ -64,8 +80,7 @@ const LabelWrapper = styled.div`
 `
 
 const FilterContainer = styled.div`
-  display: flex;
-  align-items: center;
+  
   width: 100%;
   padding: 8px 0px;
 
@@ -383,8 +398,10 @@ const Farms: React.FC = () => {
       <PageHeader>
         <Flex justifyContent="space-between" flexDirection={['column', null, null, 'row']}>
           <Flex flex="1" flexDirection="column" mr={['8px', 0]} justifyContent="center">
-            <Heading as="h1" scale="xl" color="text" mb="14px">  {t('Farms')}  </Heading>
-            <Heading scale="md" color="text"> {t('Stake LP tokens to earn.')}  </Heading>
+            <Wraph>
+              <h1> {t('Farms')} </h1>
+              <h2 > {t('Stake LP tokens to earn.')} </h2>
+            </Wraph>
           </Flex>
         </Flex>
       </PageHeader>
@@ -399,38 +416,40 @@ const Farms: React.FC = () => {
             <FarmTabButtons hasStakeInFinishedFarms={stakedInactiveFarms.length > 0} />
           </ViewControls>
           <FilterContainer>
-            <Text color="#6F6C99" mr="10px" >{t('Sort by')}</Text>
-            <LabelWrapper>
-              <Select
-                options={[
-                  {
-                    label: t('Hot'),
-                    value: 'hot',
-                  },
-                  {
-                    label: t('APR'),
-                    value: 'apr',
-                  },
-                  {
-                    label: t('Multiplier'),
-                    value: 'multiplier',
-                  },
-                  {
-                    label: t('Earned'),
-                    value: 'earned',
-                  },
-                  {
-                    label: t('Liquidity'),
-                    value: 'liquidity',
-                  },
-                ]}
-                onOptionChange={handleSortOptionChange}
-              />
-            </LabelWrapper>
-            <LabelWrapper style={{ marginLeft: 16 }}>
-              {/* <Text textTransform="uppercase">{t('Search')}</Text> */}
-              <SearchInput onChange={handleChangeQuery} placeholder="Search Farms" />
-            </LabelWrapper>
+            <Text color="#6F6C99" mb="10px" >{t('Sort by')}</Text>
+            <div style={{ display: "flex", alignItems: "center", marginBottom: "5px"}}>
+              <LabelWrapper>
+                <Select
+                  options={[
+                    {
+                      label: t('Hot'),
+                      value: 'hot',
+                    },
+                    {
+                      label: t('APR'),
+                      value: 'apr',
+                    },
+                    {
+                      label: t('Multiplier'),
+                      value: 'multiplier',
+                    },
+                    {
+                      label: t('Earned'),
+                      value: 'earned',
+                    },
+                    {
+                      label: t('Liquidity'),
+                      value: 'liquidity',
+                    },
+                  ]}
+                  onOptionChange={handleSortOptionChange}
+                />
+              </LabelWrapper>
+              <LabelWrapper style={{ marginLeft: 16 }}>
+                {/* <Text textTransform="uppercase">{t('Search')}</Text> */}
+                <SearchInput onChange={handleChangeQuery} placeholder="Search Farms" />
+              </LabelWrapper>
+            </div>
           </FilterContainer>
         </ControlContainer>
         {renderContent()}

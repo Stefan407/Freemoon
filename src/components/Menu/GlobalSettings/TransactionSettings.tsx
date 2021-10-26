@@ -158,6 +158,7 @@ const SlippageTabs = () => {
           <Box width="52px" mt="4px">
             <Input
               scale="sm"
+              style={{ width: "60px" }}
               color={deadlineError ? 'red' : undefined}
               onBlur={() => {
                 parseCustomDeadline((ttl / 60).toString())

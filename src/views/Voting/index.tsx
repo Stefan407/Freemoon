@@ -3,7 +3,7 @@ import { Flex } from '@pancakeswap/uikit'
 import styled from 'styled-components'
 import { PageMeta } from 'components/Layout/Page'
 import Hero from './components/Hero'
-// import Footer from './components/Footer'
+import Footer from './components/Footer'
 import { Proposals } from './components/Proposals'
 
 const Chrome = styled.div`
@@ -27,7 +27,7 @@ const Voting = () => {
           <Proposals />
         </Content>
         <Chrome>
-          {/* <Footer /> */}
+          <Footer />
         </Chrome>
       </Flex>
     </>

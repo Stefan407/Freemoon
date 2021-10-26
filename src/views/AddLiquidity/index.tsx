@@ -349,7 +349,7 @@ export default function AddLiquidity({
           )}
           backTo="/pool"
         />
-        <AutoColumn style={{ padding: '30px 50px 0' }} gap="md">
+        <AutoColumn style={{ padding: '24px' }} gap="md">
           {noLiquidity && (
             <ColumnCenter>
               <Message variant="warning">

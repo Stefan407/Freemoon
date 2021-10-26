@@ -14,6 +14,9 @@ const InputWrapper = styled.div`
   ${({ theme }) => theme.mediaQueries.sm} {
     display: block;
   }
+  & input{
+    font-size: 13px;
+  }
 `
 
 interface Props {

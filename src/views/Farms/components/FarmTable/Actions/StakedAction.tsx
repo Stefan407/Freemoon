@@ -132,9 +132,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
     return (
       <ActionContainer>
         <ActionTitles>
-          <Text bold textTransform="uppercase" textAlign="center" mb="5px" ml="auto" mr="auto" color="textSubtle" fontSize="12px">
-            {t('Start Farming')}
-          </Text>
+          {t('Start Farming')}
         </ActionTitles>
         <ActionContent>
           <StyledButtonWrap>
@@ -150,12 +148,8 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
       return (
         <ActionContainer>
           <ActionTitles>
-            <Text bold textTransform="uppercase" color="secondary" fontSize="12px" pr="4px">
-              {lpSymbol}
-            </Text>
-            <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
-              {t('Staked')}
-            </Text>
+            {lpSymbol}
+            {t('Staked')}
           </ActionTitles>
           <ActionContent>
             <div>

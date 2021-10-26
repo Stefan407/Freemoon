@@ -26,7 +26,7 @@ export const ActionTitles = styled.div`
   font-weight: 600;
   font-size: 12px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 `
 
 export const ActionContent = styled.div`

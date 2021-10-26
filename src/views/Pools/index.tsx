@@ -5,7 +5,7 @@ import { ethers } from 'ethers'
 import { formatUnits } from 'ethers/lib/utils'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
-import { Heading, Flex, Image, Text } from '@pancakeswap/uikit'
+import { Flex, Image, Text } from '@pancakeswap/uikit'
 import orderBy from 'lodash/orderBy'
 import partition from 'lodash/partition'
 import { useTranslation } from 'contexts/Localization'
@@ -40,6 +40,22 @@ const CardLayout = styled(FlexLayout)`
   justify-content: center;
 `
 
+const Wraph = styled.div`
+  & h1{   
+    font-size: 50px;
+        line-height: 1;
+            margin-bottom: 20px;
+    font-weight: 800;
+    color: ${({ theme }) => theme.isDark ? "#FFF" : "#242249"} ;
+  }
+  & h2{
+    font-size: 20px;
+        line-height: 1;
+            margin-bottom: 20px;
+    font-weight: 600;
+    color: ${({ theme }) => theme.isDark ? "#FFF" : "#242249"} ;
+  }
+`
 const PoolControls = styled.div`
   display: flex;
   width: 100%;
@@ -68,8 +84,6 @@ const StyledImageWrap = styled.div`
 `
 
 const FilterContainer = styled.div`
-  display: flex;
-  align-items: center;
   width: 100%;
   padding: 8px 0px;
 
@@ -265,12 +279,10 @@ const Pools: React.FC = () => {
       <PageHeader>
         <Flex justifyContent="space-between" flexDirection={['column', null, null, 'row']}>
           <Flex flex="1" flexDirection="column" mr={['8px', 0]} justifyContent="center">
-            <Heading as="h1" scale="xl" color="text" mb="14px">
-              {t('Galaxy Pools')}
-            </Heading>
-            <Heading scale="md" color="text">
-              {t('Just stake some tokens to earn. High APR, low risk.')}
-            </Heading>
+            <Wraph>
+              <h1> {t('Galaxy Pools')} </h1>
+              <h2 > {t('Just stake some tokens to earn. High APR, low risk.')} </h2>
+            </Wraph>
           </Flex>
           <Flex flex="1" height="fit-content" justifyContent="center" alignItems="center" mt={['24px', null, '0']}>
             <HelpButton />
@@ -288,40 +300,42 @@ const Pools: React.FC = () => {
             setViewMode={setViewMode}
           />
           <FilterContainer>
-            <Text fontSize="12px" bold color="#6F6C99" mr="10px" textTransform="uppercase">
+            <Text fontSize="12px" bold color="#6F6C99" mb="10px" textTransform="uppercase">
               {t('Sort by')}
             </Text>
-            <LabelWrapper>
-              <ControlStretch>
-                <Select
-                  options={[
-                    {
-                      label: t('Hot'),
-                      value: 'hot',
-                    },
-                    {
-                      label: t('APR'),
-                      value: 'apr',
-                    },
-                    {
-                      label: t('Earned'),
-                      value: 'earned',
-                    },
-                    {
-                      label: t('Total staked'),
-                      value: 'totalStaked',
-                    },
-                  ]}
-                  onOptionChange={handleSortOptionChange}
-                />
-              </ControlStretch>
-            </LabelWrapper>
-            <LabelWrapper style={{ marginLeft: 16 }}>
-              {/* <Text fontSize="12px" bold color="textSubtle" textTransform="uppercase">
+            <div style={{ display: "flex", alignItems: "center", marginBottom: "5px" }}>
+              <LabelWrapper>
+                <ControlStretch>
+                  <Select
+                    options={[
+                      {
+                        label: t('Hot'),
+                        value: 'hot',
+                      },
+                      {
+                        label: t('APR'),
+                        value: 'apr',
+                      },
+                      {
+                        label: t('Earned'),
+                        value: 'earned',
+                      },
+                      {
+                        label: t('Total staked'),
+                        value: 'totalStaked',
+                      },
+                    ]}
+                    onOptionChange={handleSortOptionChange}
+                  />
+                </ControlStretch>
+              </LabelWrapper>
+              <LabelWrapper style={{ marginLeft: 16 }}>
+                {/* <Text fontSize="12px" bold color="textSubtle" textTransform="uppercase">
                 {t('Search')}
               </Text> */}
-              <SearchInput onChange={handleChangeSearchQuery} placeholder="Search Pools" />
-            </LabelWrapper>
+                <SearchInput onChange={handleChangeSearchQuery} placeholder="Search Pools" />
+              </LabelWrapper>
+            </div>
           </FilterContainer>
         </PoolControls>
         {showFinishedPools && (

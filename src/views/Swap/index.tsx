@@ -329,7 +329,7 @@ export default function Swap({ history }: RouteComponentProps) {
       <Page >
         <AppBody>
           <AppHeader title={t('Exchange')} subtitle={t('Trade tokens in an instant')} />
-          <AutoColumn style={{ padding: '30px 50px 0' }} gap="md">
+          <AutoColumn style={{ padding: '24px' }} gap="md">
             <CurrencyInputPanel
               label={independentField === Field.OUTPUT && !showWrap && trade ? t('From (estimated)') : t('From')}
               value={formattedAmounts[Field.INPUT]}

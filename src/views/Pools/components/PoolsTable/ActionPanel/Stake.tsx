@@ -145,9 +145,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool, userDataLoa
     return (
       <ActionContainer>
         <ActionTitles>
-          <Text fontSize="12px" bold color="textSubtle" as="span" textAlign="center">
-            {t('Start staking')}
-          </Text>
+          {t('Start staking')}
         </ActionTitles>
         <ActionContent>
           <StyledButtonWrap>
@@ -162,9 +160,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool, userDataLoa
     return (
       <ActionContainer>
         <ActionTitles>
-          <Text fontSize="12px" bold color="textSubtle" as="span" textTransform="uppercase">
-            {t('Start staking')}
-          </Text>
+          {t('Start staking')}
         </ActionTitles>
         <ActionContent>
           <Skeleton width={180} height="32px" marginTop={14} />
